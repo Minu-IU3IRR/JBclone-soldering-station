@@ -1,0 +1,60 @@
+Display operation:
+
+the Neztion display comunicates with the Serial interface assigned in configs.h, this Serial port runs
+at the specified speed (default 9600 baud) but in the program.s file in the Neztion editor has beenchanged to 115200 as this:
+
+baud=115200
+(all other arameters rrmains the same)
+
+as for the HMI implementaiton all the visual readouts and controls are in the Page0, all values except for 
+heater power are text elements who's content can be accessed with command 
+
+objname.txt=\"xxx\", note the scaped quotes.
+
+for the heater output readout is a Progress Bar item, whos coloring is controller by the filling percentage as 
+
+objname.val=x where x is a text of 0 to 100
+
+for temperature input, pressing the h_set text invokes the modified keybdB page. 
+this page has been modified so that the OK butrton sends the entered value, heater is is parsed as the 
+id of the object that invoked the page.
+
+the OK buttonOn Releave Event contains this code:
+
+if(loadcmpid.val==2||loadcmpid.val==6)
+{
+  //tip 0
+  prints "0:set_t:",0
+  prints input.txt,0
+  printh ff ff ff
+}else if(loadcmpid.val==15||loadcmpid.val==17)
+{
+  //tip 1-2
+  prints "1:set_t:",0
+  prints input.txt,0
+  printh ff ff ff
+  prints "2:set_t:",0
+  prints input.txt,0
+  printh ff ff ff
+}else if(loadcmpid.val==10||loadcmpid.val==12)
+{
+  //tip3
+  prints "3:set_t:",0
+  prints input.txt,0
+  printh ff ff ff
+}
+//return to origin page
+page loadpageid.val
+
+as the keyboard is displayerd, none of the fields normally updated hy the station hmi_update function passed in the constructor
+can be accessed. so when the main page call the Page Exit Event it sends an internal command as "xxxP", where xxx is te preamble to parse
+an internal command and P halts any update going to the display. as the keyboard loads the mainpage on exit the Positionalize Event is called
+and the command "xxxR" is sent, this resumes all the updates
+
+temirnation:
+every command received by the station from the display is rerminated with three bytes like xFF, XFF, xFF. this is because i was
+not able to send any usual temrinator like \n si i stuck with the default Nextion style temrinator.
+
+interpretation:
+all comamnds received by the station is parsed the same way being from display or usb, note that the display trins the terminator. 
+every command is arsed by the Serial_control.h file content and is based on the comamnd table in configs.h

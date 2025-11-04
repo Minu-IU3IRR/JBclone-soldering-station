@@ -1,0 +1,115 @@
+Transformer design
+Sn (VA)                                  : 150.00
+Efficiency (%)                           : 90.06
+Total Power Loss (W)                     : 16.55
+Total mass (kg)                          : 4.66
+Core
+|-design frequency (Hz):                 : 50.00
+|-thickness (mm):                        : 55.00
+|-mass (kg):                             : 4.04
+|-Pfe (W):                               : 0.81
+|-cross section area (cm^2):             : 22.00
+|-V/turn:                                : 0.49
+============================================================
+Upper bobin
+|-Primary Winding
+|  |-Vn (V):                                  : 230.19
+|  |-In (A):                                  : 0.65
+|  |-Current density (A/mm^2):                : 2.09
+|  |-Pcu (W):                                 : 2.30
+|  |-N:                                       : 471
+|  |-Wire total diameter (mm):                : 0.72
+|  |-Wire conductor diameter (mm):            : 0.63
+|  |-Wire length (m):                         : 98.31
+|  |-Wire mass (kg):                          : 0.26
+|  |-Resistance (ohms):                       : 5.424
+|  |-Winding layers:                          : 13
+|  |-Winding thickness (mm):                  : 9.36
+|  |-insulation applied between layers:       : No
+   **********************************************************
+|-Mylar Tape, 3 wraps
+|  |-total thickness (mm):                    : 0.30
+   **********************************************************
+|-AM120_1
+|  |-Vn (V):                                  : 10.26
+|  |-In (A):                                  : 4.75
+|  |-Current density (A/mm^2):                : 3.09
+|  |-Pcu (W):                                 : 1.24
+|  |-N:                                       : 21
+|  |-Wire total diameter (mm):                : 1.53
+|  |-Wire conductor diameter (mm):            : 1.40
+|  |-Wire length (m):                         : 4.93
+|  |-Wire mass (kg):                          : 0.06
+|  |-Resistance (ohms):                       : 0.055
+|  |-Full load output voltage (V):            : 9.84
+|  |-Winding layers:                          : 2
+|  |-Winding thickness (mm):                  : 3.06
+|  |-insulation applied between layers:       : No
+   **********************************************************
+|-Mylar Tape, 3 wraps
+|  |-total thickness (mm):                    : 0.30
+   **********************************************************
+No errors
+Bobin occupancy (%):                     : 72.9
+============================================================
+Lower bobin
+|-AM120_2
+|  |-Vn (V):                                  : 10.26
+|  |-In (A):                                  : 4.75
+|  |-Current density (A/mm^2):                : 3.09
+|  |-Pcu (W):                                 : 1.04
+|  |-N:                                       : 21
+|  |-Wire total diameter (mm):                : 1.53
+|  |-Wire conductor diameter (mm):            : 1.40
+|  |-Wire length (m):                         : 4.12
+|  |-Wire mass (kg):                          : 0.05
+|  |-Resistance (ohms):                       : 0.046
+|  |-Full load output voltage (V):            : 9.89
+|  |-Winding layers:                          : 2
+|  |-Winding thickness (mm):                  : 3.06
+|  |-insulation applied between layers:       : No
+   **********************************************************
+|-Mylar Tape, 3 wraps
+|  |-total thickness (mm):                    : 0.30
+   **********************************************************
+|-T245
+|  |-Vn (V):                                  : 20.04
+|  |-In (A):                                  : 7.40
+|  |-Current density (A/mm^2):                : 4.81
+|  |-Pcu (W):                                 : 5.33
+|  |-N:                                       : 41
+|  |-Wire total diameter (mm):                : 1.53
+|  |-Wire conductor diameter (mm):            : 1.40
+|  |-Wire length (m):                         : 8.72
+|  |-Wire mass (kg):                          : 0.11
+|  |-Resistance (ohms):                       : 0.097
+|  |-Full load output voltage (V):            : 19.01
+|  |-Winding layers:                          : 3
+|  |-Winding thickness (mm):                  : 4.59
+|  |-insulation applied between layers:       : No
+   **********************************************************
+|-Mylar Tape, 3 wraps
+|  |-total thickness (mm):                    : 0.30
+   **********************************************************
+|-DS360 (2x10V)
+|  |-Vn (V):                                  : 20.04
+|  |-In (A):                                  : 7.40
+|  |-Current density (A/mm^2):                : 4.81
+|  |-Pcu (W):                                 : 5.82
+|  |-N:                                       : 41
+|  |-Wire total diameter (mm):                : 1.53
+|  |-Wire conductor diameter (mm):            : 1.40
+|  |-Wire length (m):                         : 9.52
+|  |-Wire mass (kg):                          : 0.13
+|  |-Resistance (ohms):                       : 0.106
+|  |-Full load output voltage (V):            : 18.94
+|  |-Winding layers:                          : 3
+|  |-Winding thickness (mm):                  : 4.59
+|  |-insulation applied between layers:       : No
+   **********************************************************
+|-Mylar Tape, 3 wraps
+|  |-total thickness (mm):                    : 0.30
+   **********************************************************
+No errors
+Bobin occupancy (%):                     : 73.6
+============================================================

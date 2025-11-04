@@ -1,0 +1,56 @@
+#ifndef __EEprom_test_h__
+#define __EEprom_test_h__
+
+#include <Arduino.h>
+#include "EEprom.h"
+
+void EEprom_test(Stream &port ,EEprom &eeprom)
+{
+    port.println("Starting EEPROM Test Suite...");
+
+    // Test 1: Write/Read Byte
+    port.print("Test 1 - Byte Write/Read: ");
+    uint8_t testByteW = 0xAB;
+    uint8_t testByteR = 0;
+    bool passByte = eeprom.writeByte(0x100, testByteW) &&
+                    eeprom.readByte(0x100, testByteR) &&
+                    (testByteR == testByteW);
+    port.println(passByte ? "OK" : "FAIL");
+
+    // Test 2: Write/Read Float
+    port.print("Test 2 - Float Write/Read: ");
+    float testFloatW = 3.14159f;
+    float testFloatR = 0.0f;
+    bool passFloat = eeprom.writeFloat(0x110, testFloatW) &&
+                     eeprom.readFloat(0x110, testFloatR) &&
+                     (testFloatR == testFloatW);
+    port.println(passFloat ? "OK" : "FAIL");
+
+    // Test 3: Write/Read Multiple Bytes
+    port.print("Test 3 - Multi-byte Write/Read: ");
+    uint8_t writeBuf[32];
+    uint8_t readBuf[32];
+    for (uint8_t i = 0; i < 32; ++i)
+        writeBuf[i] = i + 10; // known pattern
+
+    bool passMulti = eeprom.writeBytes(0x120, writeBuf, sizeof(writeBuf)) &&
+                     eeprom.readBytes(0x120, readBuf, sizeof(readBuf));
+
+    if (passMulti)
+    {
+        for (uint8_t i = 0; i < 32; ++i)
+        {
+            if (readBuf[i] != writeBuf[i])
+            {
+                passMulti = false;
+                break;
+            }
+        }
+    }
+
+    port.println(passMulti ? "OK" : "FAIL");
+
+    port.println("EEPROM Test Suite Complete.");
+}
+
+#endif
